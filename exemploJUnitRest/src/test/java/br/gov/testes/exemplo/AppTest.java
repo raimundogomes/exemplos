@@ -1,4 +1,4 @@
-package br.gov.dataprev.automacao.extbnot;
+package br.gov.testes.exemplo;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
