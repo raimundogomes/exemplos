@@ -11,6 +11,7 @@ import java.util.Scanner;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -33,6 +34,11 @@ public class PacienteServiceWSTest {
 
 		client = Client.create();
 
+	}
+	
+	@After
+	public void setDown(){
+		client.destroy();
 	}
 
 	@Test
@@ -82,17 +88,25 @@ public class PacienteServiceWSTest {
 
 	public static void main(String[] args) throws IOException {
 		
-		String path = new File("src/resources/entrada/arquivo.txt").getCanonicalPath();
-		Scanner scanner = new Scanner(new FileReader(path)).useDelimiter("\\||\\n");
+		String path = new File("src/resources/entrada/arquivo.csv").getCanonicalPath();
+		
+		Scanner scanner = new Scanner(new FileReader(path));
+		
+		scanner.useDelimiter(";|\\n");
 		
 		while (scanner.hasNext()) {
-			String nome = scanner.next();
-			String cidade = scanner.next();
-			String compras = scanner.next();
-			System.out.println(nome);
-			System.out.println(cidade);
-			System.out.println(compras);
+			String campo1 = scanner.next();
+			String campo2 = scanner.next();
+			String campo3 = scanner.next();
+			String campo4 = scanner.next();
+			String campo5 = scanner.next();
+			System.out.print(campo1);
+			System.out.print(campo2);
+			System.out.print(campo3);
+			System.out.print(campo4);
+			System.out.println(campo5);
 		}
+		scanner.close();
 	}
 
 }
